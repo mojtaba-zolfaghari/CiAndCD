@@ -25,3 +25,17 @@ jobs:
         server: ${{ secrets.ftp_server }}
         username: ${{ secrets.ftp_user  }}
         password: ${{ secrets.ftp_password }}
+        server-dir: ${{ secrets.server_dir }}
+        dry-run: ${{ secrets.DRY_RUN }}
+        dangerous-clean-slate: ${{ secrets.dangerous_clean_slate }}
+    - name: publish    
+      run : dotnet publish  
+    - name: 🚀 Deploy
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+         local-dir: /home/runner/work/***/bin/Debug/net6.0/publish/
+         server: ${{ secrets.ftp_server }}
+         username: ${{ secrets.ftp_user }}
+         password: ${{ secrets.ftp_password }}
+
+
