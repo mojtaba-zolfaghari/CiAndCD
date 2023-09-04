@@ -9,7 +9,7 @@ namespace CiCdTest
         public void TestMethod1()
         {
             // Arrange
-            var myvar = "test1";
+            var myvar = "test";
 
             //Act
             bool result = (myvar == "test");
